@@ -1,0 +1,262 @@
+<?xml version="1.0" ?>
+<somatosensory_system>
+    <robot name="naored">
+        <characters>
+
+            <character name="default">
+                <roboception name="current_pain" topicname="current_stimulus">
+                    <sensor name="HeadPitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="LHand" mod="0.5" inibh="1" />
+                    <sensor name="LHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="LHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="LKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="0.5" inibh="1" />
+                    <sensor name="LWristYaw" mod="0.5" inibh="1" />
+                    <sensor name="RAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="RHand" mod="0.5" inibh="1" />
+                    <sensor name="RHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="RHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="RKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="0.5" inibh="1" />
+                </roboception>
+                <roboception name="temperature_pain" topicname="temperature_stimulus">
+                    <sensor name="HeadPitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="LHand" mod="0.5" inibh="1" />
+                    <sensor name="LHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="LHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="LKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="0.5" inibh="1" />
+                    <sensor name="LWristYaw" mod="0.5" inibh="1" />
+                    <sensor name="RAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="RHand" mod="0.5" inibh="1" />
+                    <sensor name="RHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="RHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="RKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="0.5" inibh="1" />
+                </roboception>
+                <roboception name="anxiety" topicname="anxiety_stimulus">
+                    <sensor name="sonar" mod="0.5" inibh="1" />
+                </roboception>
+                <roboception name="exertion" topicname="exertion_stimulus">
+                	<sensor name="bodily" mod="0.5" inibh="1" />
+				</roboception>
+                <roboception name="forcefulness" topicname="forcefulness_stimulus">
+                	<sensor name="energy" mod="0.5" inibh="1" />
+                </roboception>
+            </character>
+
+            <character name="emotive">
+                <roboception name="anxiety" topicname="anxiety_stimulus">
+                    <sensor name="sonar" mod="1.0" inibh="1" />
+                </roboception>
+            </character>
+
+            <character name="sensitive_to_pain">
+                <roboception name="current_pain" topicname="current_stimulus">
+                    <sensor name="HeadPitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="LHand" mod="1.0" inibh="1" />
+                    <sensor name="LHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="LHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="LKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="1.0" inibh="1" />
+                    <sensor name="LWristYaw" mod="1.0" inibh="1" />
+                    <sensor name="RAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="RHand" mod="1.0" inibh="1" />
+                    <sensor name="RHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="RHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="RKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="1.0" inibh="1" />
+                </roboception>
+                <roboception name="temperature_pain" topicname="temperature_stimulus">
+                    <sensor name="HeadPitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="LHand" mod="1.0" inibh="1" />
+                    <sensor name="LHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="LHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="LKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="1.0" inibh="1" />
+                    <sensor name="LWristYaw" mod="1.0" inibh="1" />
+                    <sensor name="RAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="RHand" mod="1.0" inibh="1" />
+                    <sensor name="RHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="RHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="RKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="1.0" inibh="1" />
+                </roboception>
+            </character>
+        </characters>
+     </robot>
+
+    <robot name="naogrey">
+        <characters>
+
+            <character name="default">
+                <roboception name="current_pain" topicname="current_stimulus">
+                    <sensor name="HeadPitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="LHand" mod="0.5" inibh="1" />
+                    <sensor name="LHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="LHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="LKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="0.5" inibh="1" />
+                    <sensor name="LWristYaw" mod="0.5" inibh="1" />
+                    <sensor name="RAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="RHand" mod="0.5" inibh="1" />
+                    <sensor name="RHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="RHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="RKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="0.5" inibh="1" />
+                </roboception>
+                <roboception name="temperature_pain" topicname="temperature_stimulus">
+                    <sensor name="HeadPitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="LElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="LHand" mod="0.5" inibh="1" />
+                    <sensor name="LHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="LHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="LKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="0.5" inibh="1" />
+                    <sensor name="LWristYaw" mod="0.5" inibh="1" />
+                    <sensor name="RAnklePitch" mod="0.5" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowRoll" mod="0.5" inibh="1" />
+                    <sensor name="RElbowYaw" mod="0.5" inibh="1" />
+                    <sensor name="RHand" mod="0.5" inibh="1" />
+                    <sensor name="RHipPitch" mod="0.5" inibh="1" />
+                    <sensor name="RHipRoll" mod="0.5" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="0.5" inibh="1" />
+                    <sensor name="RKneePitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="0.5" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="0.5" inibh="1" />
+                </roboception>
+                <roboception name="anxiety" topicname="anxiety_stimulus">
+                    <sensor name="sonar" mod="0.5" inibh="1" />
+                </roboception>
+                <roboception name="exertion" topicname="exertion_stimulus">
+                	<sensor name="bodily" mod="0.5" inibh="1" />
+				</roboception>
+                <roboception name="forcefulness" topicname="forcefulness_stimulus">
+                	<sensor name="energy" mod="0.5" inibh="1" />
+                </roboception>
+            </character>
+
+            <character name="emotive">
+                <roboception name="anxiety" topicname="anxiety_stimulus">
+                    <sensor name="sonar" mod="1.0" inibh="1" />
+                </roboception>
+            </character>
+
+            <character name="sensitive_to_pain">
+                <roboception name="current_pain" topicname="current_stimulus">
+                    <sensor name="HeadPitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="LHand" mod="1.0" inibh="1" />
+                    <sensor name="LHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="LHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="LKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="1.0" inibh="1" />
+                    <sensor name="LWristYaw" mod="1.0" inibh="1" />
+                    <sensor name="RAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="RHand" mod="1.0" inibh="1" />
+                    <sensor name="RHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="RHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="RKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="1.0" inibh="1" />
+                </roboception>
+                <roboception name="temperature_pain" topicname="temperature_stimulus">
+                    <sensor name="HeadPitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="LAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="LElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="LHand" mod="1.0" inibh="1" />
+                    <sensor name="LHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="LHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="LHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="LKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="LShoulderRoll" mod="1.0" inibh="1" />
+                    <sensor name="LWristYaw" mod="1.0" inibh="1" />
+                    <sensor name="RAnklePitch" mod="1.0" inibh="1" />
+                    <sensor name="RAnkleRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowRoll" mod="1.0" inibh="1" />
+                    <sensor name="RElbowYaw" mod="1.0" inibh="1" />
+                    <sensor name="RHand" mod="1.0" inibh="1" />
+                    <sensor name="RHipPitch" mod="1.0" inibh="1" />
+                    <sensor name="RHipRoll" mod="1.0" inibh="1" />
+                    <sensor name="RHipYawPitch" mod="1.0" inibh="1" />
+                    <sensor name="RKneePitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderPitch" mod="1.0" inibh="1" />
+                    <sensor name="RShoulderRoll" mod="1.0" inibh="1" />
+                </roboception>
+            </character>
+        </characters>
+     </robot>
+</somatosensory_system>

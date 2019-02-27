@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="somatosensory_system">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="robot"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="robot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="characters"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="characters">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="character"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="character">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="roboception"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="roboception">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="sensor"/>
+            </xs:sequence>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+            <xs:attribute name="topicname" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="sensor">
+        <xs:complexType>
+            <xs:attribute name="inibh" use="required" type="xs:integer"/>
+            <xs:attribute name="mod" use="required" type="xs:decimal"/>
+            <xs:attribute name="name" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="mod" >
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+             <xs:minInclusive value="0.0" />
+             <xs:maxInclusive value="1.0" />
+          </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+    <xs:element name="inibh" >
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+              <xs:enumeration value="0"/>
+              <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+</xs:schema>

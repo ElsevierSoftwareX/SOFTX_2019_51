@@ -1,0 +1,17 @@
+<launch>
+
+	<arg name="robot_ip" default="naored" />
+  	<arg name="robot_port" default="$(optenv NAO_PORT 9559)" />
+  	<arg name="robot_name" default="naored" />
+  	<arg name="tau" default="100.0" />
+  	
+ 	<param name="robot_ip" type="string" value="$(arg robot_ip)" />
+ 	<param name="robot_port" type="string" value="$(arg robot_port)" />
+ 	<param name="robot_name" type="string" value="$(arg robot_name)" />  
+ 	<param name="tau" type="double" value="$(arg tau)" />  
+ 	<param name="config_file" type="string" value="$(find somatosensory_system)/config/xml/character.xml" />  
+
+  	<!-- Launch Forcefulness Stimulus -->
+  	<node pkg="somatosensory_system" type="ForcefulnessStimulus.py" name="$(arg robot_name)_forcefulness_stimulus" output="screen"/>
+  	
+</launch>
