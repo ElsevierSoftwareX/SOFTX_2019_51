@@ -100,7 +100,7 @@ def initTemperaturePain():
     
     for sensor in Sensors:
         TemperatureMax[sensor] = getTemperatureMax(sensor)
-        TAU[sensor] = rospy.get_param('tau')
+        TAU[sensor] = rospy.get_param('tau_t')
         ts[sensor] = 0.0
         td[sensor] = 5.0 * TAU[sensor]
         

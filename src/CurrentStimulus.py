@@ -101,7 +101,7 @@ def initCurrentPain():
     global Sensors, CurrentMax, ts, td, TAU
     for sensor in Sensors:
         CurrentMax[sensor] = getCurrentMax(sensor)
-        TAU[sensor] = rospy.get_param('tau')
+        TAU[sensor] = rospy.get_param('tau_c')
         ts[sensor] = 0.0
         td[sensor] = 5.0 * TAU[sensor]
         

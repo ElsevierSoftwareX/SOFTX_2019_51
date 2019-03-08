@@ -1,0 +1,24 @@
+<launch>
+
+	<arg name="robot_ip" default="naored" />
+  	<arg name="robot_port" default="$(optenv NAO_PORT 9559)" />
+  	<arg name="robot_name" default="naored" />
+  	<arg name="personalZone" default="1.2" />
+  	<arg name="intimateZone" default="0.7" />
+  	<arg name="character" default="emotive" />
+  	
+ 	<param name="robot_ip" type="string" value="$(arg robot_ip)" />
+ 	<param name="robot_port" type="string" value="$(arg robot_port)" />
+ 	<param name="robot_name" type="string" value="$(arg robot_name)" />  
+ 	<param name="personalZone" type="double" value="$(arg personalZone)" />  
+ 	<param name="intimateZone" type="double" value="$(arg intimateZone)" />  
+ 	<param name="character" type="string" value="$(arg character)" />
+ 	<param name="config_file" type="string" value="$(find somatosensory_system)/config/xml/character.xml" />  
+
+  	<!-- Launch AnxietyStimulus -->
+  	<node pkg="somatosensory_system" type="AnxietyStimulus.py" name="$(arg robot_name)_anxiety_stimulus" output="log"/>
+  	
+  	<!-- Launch Roboception -->
+	<node pkg="somatosensory_system" type="Roboception.py" name="$(arg robot_name)_$(arg character)_roboception" output="log"/>
+	
+</launch>
