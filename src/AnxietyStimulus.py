@@ -23,22 +23,21 @@ from std_msgs.msg import Float32
 
 import numpy as np
 
+session = ''       # Robot connection session
+memoryService = '' # Robot memory service (ALMemory)
+sonarService = ''  # Robot sonar service (ALSonar)
+S = [] # LIFO buffer of last two sonars distances (metres)
+State = 0 # Anxiety Status
 
-session = ''
-memoryService = ''
-sonarService = ''
-S = []
-State = 0
-
-A = 0.0
-ts = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-td = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-RC = [0.0,80.0,20.0]
+A = 0.0 # Anxiety stimulus
+ts = [0.0,0.0,0.0,0.0,0.0,0.0,0.0] # Vector of ascent instant of each anxiety status
+td = [0.0,0.0,0.0,0.0,0.0,0.0,0.0] # Vector of descent instant of each anxiety status
+RC = [0.0,80.0,20.0] # Vector of of exponential function time constants
 
 Robot_Name = rospy.get_param('robot_name')
 Config_File = rospy.get_param('config_file')
-personalZone = rospy.get_param('personalZone')
-intimateZone = rospy.get_param('intimateZone')
+personalZone = rospy.get_param('personalZone') # Personal zone distance (metres) loaded from ROS launcher or line command parameter
+intimateZone = rospy.get_param('intimateZone') # Intimate zone distance (metres) loaded from ROS launcher or line command parameter
 
 logger = qi.Logger("anxiety-node")
 
@@ -90,17 +89,17 @@ def getDistance():
 def setState():
     global personalZone, intimateZone, S, State
     if (S[0]>personalZone and S[1]<=personalZone):   
-        State = 1
+        State = 1 # From the public zone (distance greater than personal zone) to the personal zone
     if (S[1]>personalZone and S[0]<=personalZone):  
-        State = 2
+        State = 2 # From the personal zone to the public zone
     if (S[0]>intimateZone and S[1]<=intimateZone):  
-        State = 3
+        State = 3 # From the personal zone to the intimate zone
     if (S[1]>intimateZone and S[0]<=intimateZone):  
-        State = 4
+        State = 4 # From the intimate zone to the personal zone
     if (S[0]>personalZone and S[1]<=intimateZone):  
-        State = 5
+        State = 5 # From the public zone to the intimate zone
     if (S[1]>personalZone and S[0]<=intimateZone):  
-        State = 6
+        State = 6 # From the intimate zone to the public zone
 
 
 def anxiety():
@@ -172,7 +171,7 @@ if __name__ == "__main__":
    
     logger.info("ROS Node started")
     
-    S.append(10) # Set initial distance
+    S.append(10) # Set initial distance (metres)
     try:
         while not rospy.is_shutdown():
             if len(S) == 2:

@@ -22,20 +22,17 @@ import time
 import rospy
 from std_msgs.msg import Float32
 
-#import numpy as np
-
 import xml.etree.ElementTree as et
 
-session = ''
-memoryService = ''
+session = ''       # Robot connection session
+memoryService = '' # Robot memory service (ALMemory)
 Robot_Name = rospy.get_param('robot_name')
 Config_File = rospy.get_param('config_file')
 
-#Robot_Name = 'naored'
-character = rospy.get_param('character')
+character = rospy.get_param('character') # 
 
-publisher_by_topic = {}
-mod_by_topic = {}
+publisher_by_topic = {} # ROS topics by character roboceptions loaded from the configuration file
+mod_by_topic = {} # ROS topics modulation loaded from the configuration file
 
 logger = qi.Logger("roboception-node")
 

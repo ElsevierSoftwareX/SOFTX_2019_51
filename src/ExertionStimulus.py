@@ -25,20 +25,20 @@ import xml.etree.ElementTree as et
 
 import numpy as np
 
-session = ''
-memoryService = ''
+session = ''       # Robot connection session
+memoryService = '' # Robot memory service (ALMemory)
 Robot_Name = rospy.get_param('robot_name')
 Config_File = rospy.get_param('config_file')
 
-CurrentMax = 0.0
+CurrentMax = 0.0 # Max total current of all sensors
 
-ts = 0.0
-td = 0.0
-TAU = 0.0
+ts = 0.0  # Ascent instant
+td = 0.0  # Descent instant
+TAU = 0.0 # Exponential function time constant
 
-sensorTopic = ''
+sensorTopic = '' # ROS topic of Exertion
 
-Sensors = []
+Sensors = [] # Vector of the sensors loaded from the configuration file 
 
 logger = qi.Logger("exertion-stimulus-node")
 
@@ -117,18 +117,18 @@ def initCurrentPain():
 def Somatosensory():
     global CurrentMax, ts, td, TAU
     
-    x = 0.0
+    stimulus = 0.0
     if getTotalCurrent() > (0.1 * CurrentMax):
-        x = (1-np.exp(-ts/TAU))
-        if x < 1.0 and x > 0.0:
-            td = -TAU * np.log(x)
+        stimulus = (1-np.exp(-ts/TAU))
+        if stimulus < 1.0 and stimulus > 0.0:
+            td = -TAU * np.log(stimulus)
         ts= ts + 1.0
     else:
-        x = (np.exp(-td/TAU))
-        if x > 0.0:
-            ts = -TAU * np.log(1 - x)
+        stimulus = (np.exp(-td/TAU))
+        if stimulus > 0.0:
+            ts = -TAU * np.log(1 - stimulus)
         td = td + 1.0
-    return x
+    return stimulus
 
 
 def endJob():

@@ -23,19 +23,19 @@ from std_msgs.msg import Float32
 
 import numpy as np
 
-session = ''
-memoryService = ''
+session = ''       # Robot connection session
+memoryService = '' # Robot memory service (ALMemory)
 Robot_Name = rospy.get_param('robot_name')
 Config_File = rospy.get_param('config_file')
 
-tau = rospy.get_param('tau')
+tau = rospy.get_param('tau') # Exponential function time constant from ROS launcher
 step = 0.0
-t = 0.0
-S0 = 0.0
-Energy = 0.0
-Charging = False
+t = 0.0      # Time
+S0 = 0.0     # Battery initial charge level
+Energy = 0.0 # Energy level
+Charging = False # Charging status
 
-sensorTopic = ''
+sensorTopic = '' # ROS topic of Forcefulness
 
 logger = qi.Logger("forcefulness-stimulus-node")
 
@@ -82,8 +82,9 @@ def getBatteryCharging():
 def Somatosensory():
     global t, tau, S0, Energy, Charging
     
-    x = 0.0
+    stimulus = 0.0
     step = 1.0
+    T = 0.0 # Exponential function time constant adjusted from battery charge
     bc = getBatteryCharge()
     if getBatteryCharging() > 0.0:
         if not Charging:
@@ -91,20 +92,21 @@ def Somatosensory():
             S0 = Energy
             t = 0.0
         T = (tau * 0.5) / bc
-        x = (S0 - 1.0) * np.exp(-t/T) + 1.0
+        stimulus = (S0 - 1.0) * np.exp(-t/T) + 1.0
     else:
         if Charging:
             Charging = False
             S0 = Energy
             t = 0.0
         T = (tau * 2.0) * bc
-        x = S0 * np.exp(-t/T)
-        if (x < (bc * 0.5)):
-            print x
-            x = (x + bc) / 2.0
+        stimulus = S0 * np.exp(-t/T)
+        if (stimulus < (bc * 0.5)):
+            stimulus = (stimulus + bc) / 2.0
+            #print stimulus
     t = t + step
-    print t, T, bc, S0, Charging
-    return float('{:.4f}'.format(x))
+    #print t, T, bc, S0, Charging
+    
+    return float('{:.4f}'.format(stimulus))
 
 
 def endJob():
